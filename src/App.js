@@ -6,7 +6,8 @@ import CountrySelector from "./components/countrySelector/countrySelector";
 function App() {
   return (
     <div className="App">
-      <CountrySelector />
+      <CountrySelector selectorNumber={1} />
+      <CountrySelector selectorNumber={2}/>
       <BarStats />
     </div>
   );

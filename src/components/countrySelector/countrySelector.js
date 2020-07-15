@@ -1,17 +1,25 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { fetchStats } from "../../data/actions/stats.actions";
+import { fetchStats, statsReset } from "../../data/actions/stats.actions";
 
-const CountrySelector = () => {
+const CountrySelector = ({selectorNumber}) => {
     const dispatch = useDispatch()
     
+    const changeHandler = (value, selectorNumber) => {
+        if (value.target.value !== "Choose") {
+            dispatch(fetchStats(value.target.value, selectorNumber))
+        } else {
+            dispatch(statsReset(selectorNumber));
+        }
+    }
+
   return (
     <div>
 
-    <button onClick={() => dispatch(fetchStats("poland"))}></button>
+    
 
       <label htmlFor="country">Country : </label>
-      <select name="country" onChange={(e) => console.log(e.target.value)}>
+      <select name="country" onChange={(value) => changeHandler(value, selectorNumber)}>
       <option value="Choose">Choose</option>
         <option value="Poland">Poland</option>
         <option value="Germany">Germany</option>
