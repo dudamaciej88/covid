@@ -13,7 +13,6 @@ const initialState = {
   stats: {
     1: {},
     2: {}
-    
   },
   
 };
