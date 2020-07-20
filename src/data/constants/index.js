@@ -1,4 +1,6 @@
 export * from './stats.constants';
+export * from './legend.constants';
+export * from './displayer.constants';
 
 // LOADING STATES
 export const LOADING_STATES = {
