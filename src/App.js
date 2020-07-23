@@ -1,4 +1,6 @@
 import React from "react";
+import { ThemeProvider } from "styled-components";
+import mainTheme from "./themes/mainTheme";
 import * as S from "./App.style";
 import HeaderContainer from "./components/headerContainer/headerContainer"
 import BarStats from "./components/barStats/barStats";
@@ -13,6 +15,7 @@ function App() {
   const display = useSelector((state) => state.displayer.display)
   
   return (
+    <ThemeProvider theme={mainTheme}>
     <S.App>
       <HeaderContainer />
       <S.SelectorsWrapper>
@@ -24,6 +27,7 @@ function App() {
       {display === "bar" ? <BarStats /> : null}
       {display === "timeline" ? <TimelineStats /> : null}
     </S.App>
+    </ThemeProvider>
   );
 }
 
