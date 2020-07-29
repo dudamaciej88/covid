@@ -40,11 +40,10 @@ const TimelineStats = () => {
     const myChartRef1 = chartRef1.current.getContext("2d");
     if (typeof myChart !== "undefined") myChart.destroy();
     Chart.defaults.global.animation.duration = 2000;
-    Chart.defaults.global.animation.easing = "linear";
+    Chart.defaults.global.animation.easing = "easeInOutQuad";
     Chart.defaults.global.defaultFontColor = "white";
-    
     Chart.defaults.global.elements.line.tension = 0;
-   
+
     myChart = new Chart(myChartRef1, {
       type: "line",
       data: {
@@ -63,7 +62,7 @@ const TimelineStats = () => {
             ? {
                 label: labelHandler(2, "cases"),
                 data: dataHandler(2, "cases"),
-                borderColor: "#0e153a",
+                borderColor: "red",
                 pointRadius: 0,
               }
             : {},
@@ -102,21 +101,22 @@ const TimelineStats = () => {
         ],
       },
       options: {
-        legend: {display: false},
+        legend: { display: false },
         responsive: true,
-  maintainAspectRatio: true,
+        maintainAspectRatio: true,
         scales: {
-          xAxes: [{
-            
-            gridLines: {
-                display: false,
-                drawBorder: false
-            }
-        }],
+          xAxes: [
+            {
+              gridLines: {
+                
+                display: true,
+                drawBorder: false,
+              },
+            },
+          ],
           yAxes: [
             {
               ticks: {
-                
                 suggestedMin: 0,
               },
               position: "right",

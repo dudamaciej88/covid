@@ -68,7 +68,7 @@ height: 1rem;
 align-self: center;
 border-radius: 1rem;
 justify-self: center;
-background-color: #0e153a;
+background-color: red;
 grid-column: 3 / 4;
 grid-row: 2 / 3;
 `

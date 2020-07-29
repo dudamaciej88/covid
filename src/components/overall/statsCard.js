@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import * as S from "./statsCard.style"
-import CountUp from 'react-countup';
+import * as S from "./statsCard.style";
+import CountUp from "react-countup";
 
 const StatsCard = ({ number }) => {
   const stats = useSelector((state) => state.stats.stats);
@@ -16,12 +16,24 @@ const StatsCard = ({ number }) => {
 
   return (
     <S.Wrapper>
-      <S.Pdesc>Cases</S.Pdesc>
-      <S.PNumber><CountUp end={dataStats("cases")} /></S.PNumber>
-      <S.Pdesc>Deaths</S.Pdesc>
-      <S.PNumber><CountUp end={dataStats("deaths")}/></S.PNumber>
-      <S.Pdesc>Recovered</S.Pdesc>
-      <S.PNumber><CountUp end={dataStats("recovered")}/></S.PNumber>
+      <S.StatWrapper>
+        <S.Pdesc>Cases</S.Pdesc>
+        <S.PNumber>
+          <CountUp end={dataStats("cases")} />
+        </S.PNumber>
+      </S.StatWrapper>
+      <S.StatWrapper>
+        <S.Pdesc>Deaths</S.Pdesc>
+        <S.PNumber>
+          <CountUp end={dataStats("deaths")} />
+        </S.PNumber>
+      </S.StatWrapper>
+      <S.StatWrapper>
+        <S.Pdesc>Recovered</S.Pdesc>
+        <S.PNumber>
+          <CountUp end={dataStats("recovered")} />
+        </S.PNumber>
+      </S.StatWrapper>
     </S.Wrapper>
   );
 };

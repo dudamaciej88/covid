@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import Chart from "chart.js";
 import { useSelector } from "react-redux";
+import * as S from "./barStats.style";
 
 let myBar;
 
@@ -37,8 +38,8 @@ const BarStats = () => {
     if (typeof myBar !== "undefined") myBar.destroy();
     Chart.defaults.global.animation.duration = 2000;
     Chart.defaults.global.animation.easing = "linear";
-    Chart.defaults.global.defaultFontColor = 'white';
-    Chart.defaults.global.defaultFontFamily = "'Montserrat'"
+    Chart.defaults.global.defaultFontColor = "white";
+    Chart.defaults.global.defaultFontFamily = "'Montserrat'";
     myBar = new Chart(myChartRef, {
       type: "bar",
       data: {
@@ -48,31 +49,46 @@ const BarStats = () => {
           {
             label: labelHandler(1),
             data: dataStats(1),
-            backgroundColor: '#faee1c'
+            backgroundColor: "#faee1c",
           },
           {
             label: labelHandler(2),
             data: dataStats(2),
-            backgroundColor: '#0e153a'
+            backgroundColor: "#3D5AF1",
           },
         ],
       },
       options: {
         scales: {
-          yAxes: [{
+          yAxes: [
+            {
+              gridLines: { 
+                zeroLineColor: "white",
+                display: true
+              },
               ticks: {
-                  suggestedMin: 0,
-                  
-              }
-          }]
-      }
+                suggestedMin: 0,
+              },
+            },
+          ],
+          xAxes: [
+            {
+              gridLines: { 
+                zeroLineColor: "white",
+                display: true
+              },
+            }
+          ]
+        },
       },
     });
   });
 
   return (
     <>
-      <canvas   id="myBar" ref={chartRef} />
+      <S.Wrapper>
+        <canvas id="myBar" ref={chartRef} />
+      </S.Wrapper>
     </>
   );
 };

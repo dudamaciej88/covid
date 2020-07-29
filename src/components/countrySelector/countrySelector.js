@@ -57,7 +57,7 @@ const CountrySelector = ({ selectorNumber }) => {
         onChange={(value) => changeHandler(value, selectorNumber)}
       >
         <option value="Choose">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-----&nbsp;&nbsp;&darr;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- - - - -&nbsp;&nbsp;&darr;
         </option>
         {options}
       </S.Select>
